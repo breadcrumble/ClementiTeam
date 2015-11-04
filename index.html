@@ -8,24 +8,29 @@
 
 	<link rel="stylesheet" href="app.css">
 	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular/angular-ui-router.min.js"></script>
 	<script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-	<script src="app.js"></script>
+	<script src="js/app.js"></script>
+
+		<script src="js/config.js"></script>
+	<script src="js/controller.js"></script>
+
 
 	<script src="lib/Chart.js/Chart.min.js"></script>
 	<script src="lib/angular-chart.js/dist/angular-chart.js"></script>
 	<link rel="stylesheet" href="lib/angular-chart.js/dist/angular-chart.css" />
 </head>
 
-<body ng-controller="WATenController">
+<body ng-controller="MainController as main">
 	<nav class="navbar navbar-default">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Clementi - WA 10 Steps</a>
+				<a class="navbar-brand" ui-sref="home">Clementi - WA 10 Steps {{main.test}}</a>
 				<ul class="nav navbar-nav">
-  <li><a href="#">Home</a></li>
-	  <li><a href="#">About</a></li>
-		  <li><a href="#">Calculator</a></li>
+  <li><a ui-sref="home">Home</a></li>
+	  <li><a ui-sref="about">About</a></li>
+		  <li><a ui-sref="calculator">Calculator</a></li>
 				      </ul>
 			</div>
 
@@ -62,47 +67,9 @@
 	</div>
 
 <div class='container'>
-<div class="col-md-3" id="sidebar">
-	<div class="well well-md">
-<h3>Input Stock Ticker</h3>
-<div class="input-group">
 
-  <input type="text" class="form-control" placeholder="">
-	<span class="input-group-btn">
-	        <button class="btn btn-default" type="button">Go!</button>
-	      </span>
-</div>
+	<div ui-view autoscroll="false"></div>
 
-<hr>
-<strong><h4>Fundamental Analysis</h4></strong>
-<ul>
-	<li>Sales, Profits, Net Income</li>
-	<li>jkshdkh</li>
-</ul>
-	</div>
-</div>
-<div class="col-md-9">
-	<div class="well well-md">
-<h2>{{6+4}} No Curly Braces Means Angular is working</h2>
-<p>
-	Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
-</p>
-	</div>
-	<div class="well well-md">
-<h2>lkdjflkdj</h2>
-<p>
-	Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
-</p>
-	</div>
-	<div class="well well-md">
-<h2>lkdjflkdj</h2>
-<hr>
-<p>
-	Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
-</p>
-	</div>
-
-</div>
 
 </div>
 </body>
