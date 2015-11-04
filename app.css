@@ -2,12 +2,14 @@
 background-image: url("lib/london2.jpg");
 background-size: 100%;
 min-height: 400px;
-
 }
 
+.center-text {
+  text-align: center;
+}
 
 #jumbotext {
-  
+
 text-align: center;
 vertical-align: middle;
 color: #003049;
@@ -24,6 +26,11 @@ text-shadow:
 }
 
 .highlight {
-color: #EA7F07;
+color: #F6511D;
 
+}
+
+ul
+{
+    list-style-type: none;
 }
