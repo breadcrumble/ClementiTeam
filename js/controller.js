@@ -1,7 +1,10 @@
 angular.module('app')
 
-.controller('MainController', ['$http', '$log', '$anchorScroll', function($http, $log, $anchorScroll) {
-
+.controller('MainController', ['$http', '$log', '$anchorScroll', '$location', function($http, $log, $anchorScroll, $location) {
+  this.scrollTo = function(id) {
+       $location.hash(id);
+       $anchorScroll();
+    };
   var self = this;
   self.title = "WA 10 Steps";
   var tickerOnly = function(ticker) {
