@@ -1,1 +1,1 @@
-angular.module('app', ['ui.bootstrap', 'chart.js', 'ui.router']);
+angular.module('app', ['ui.bootstrap', 'chart.js', 'ui.router', 'sticky']);
