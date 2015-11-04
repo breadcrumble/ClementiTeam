@@ -1,5 +1,6 @@
 angular.module('app')
-.controller('MainController', function() {
 
-  this.test = "IUAYSHD";
-});
+.controller('MainController', ['$http', 'dataService', function($http, dataService) {
+  this.asdf = dataService.testing;
+  this.test = "WA 10 Steps";
+}]);
