@@ -1,6 +1,6 @@
 angular.module('app')
 
-.controller('MainController', ['$http', '$log', function($http, $log) {
+.controller('MainController', ['$http', '$log', '$anchorScroll', function($http, $log, $anchorScroll) {
 
   var self = this;
   self.title = "WA 10 Steps";
