@@ -5,6 +5,14 @@ angular.module('app')
        $location.hash(id);
        $anchorScroll();
     };
+
+    this.chartArray = [
+      [0, 0, 1, 0],
+      [0, 0, 2, 0],
+      [0, 0, 0, 0]
+    ];
+    this.labels = ['Y1', 'Y2', 'Y3', 'Y4'];
+   this.series = ['Sales', 'Net Income', 'Cashflow'];
   var self = this;
   self.title = "WA 10 Steps";
   var tickerOnly = function(ticker) {
