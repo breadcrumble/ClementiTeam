@@ -68,19 +68,4 @@ self.newArray = [];
 
 
 
-  this.createChartArray = function(object) {
-    var newArray = [
-      [0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0]
-    ];
-
-
-
-
-  //  self.chartArray.splice(1,0,newArray);
-  $log.log(newArray);
-    return newArray;
-
-  };
 }]);
