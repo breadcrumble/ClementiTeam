@@ -2,6 +2,7 @@ angular.module('app').service('morningStarService', ['$http', '$log', function($
 var self = this;
 self.stockObject = {};
 self.newArray = [];
+self.ivObject = {};
   this.tickerOnly = function(ticker) {
     $log.log("Button was clicked");
     //NOTE morningStar CF API
@@ -13,6 +14,7 @@ self.newArray = [];
         self.stockObject["cashflow"] = data.data.results[0];
         self.stockObject.cashflow.ocf.splice(5,1);
         self.newArray.splice(2,1,self.stockObject.cashflow.ocf);
+        self.ivObject["cashflow"] = self.stockObject.cashflow.ocf[4];
     }
 
     else {
