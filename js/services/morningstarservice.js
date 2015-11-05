@@ -1,6 +1,7 @@
 angular.module('app').service('morningStarService', ['$http', '$log', function($http, $log) {
 var self = this;
 this.stockObject = {};
+self.chartArray = [];
   this.tickerOnly = function(ticker) {
     $log.log("Button was clicked");
     //NOTE morningStar CF API
@@ -53,6 +54,26 @@ this.stockObject = {};
       $log.log("There has been an error for the Morningstar IS API");
       // body...
     });
+
+  };//end tickerOnly
+
+
+
+  this.createChartArray = function(object) {
+    var newArray = [
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0]
+    ];
+    object.incomeStatement.revenue.splice(5,1);
+    object.incomeStatement.netincome.splice(5,1);
+    object.cashflow.ocf.splice(5,1);
+    newArray.splice(0,1,object.incomeStatement.revenue);
+    newArray.splice(1,1,object.incomeStatement.netincome);
+   newArray.splice(2,1,object.cashflow.ocf);
+  //  self.chartArray.splice(1,0,newArray);
+  $log.log(newArray);
+    return newArray;
 
   };
 }]);
