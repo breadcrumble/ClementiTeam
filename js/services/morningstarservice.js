@@ -1,7 +1,7 @@
 angular.module('app').service('morningStarService', ['$http', '$log', function($http, $log) {
 var self = this;
-this.stockObject = {};
-self.chartArray = [];
+self.stockObject = {};
+self.newArray = [];
   this.tickerOnly = function(ticker) {
     $log.log("Button was clicked");
     //NOTE morningStar CF API
@@ -11,6 +11,8 @@ self.chartArray = [];
 
       if (data.data.results) {
         self.stockObject["cashflow"] = data.data.results[0];
+        self.stockObject.cashflow.ocf.splice(5,1);
+        self.newArray.splice(2,1,self.stockObject.cashflow.ocf);
     }
 
     else {
@@ -29,6 +31,7 @@ self.chartArray = [];
     .then(function successCallback(data) {
       if (data.data.results) {
         self.stockObject["balanceSheet"] = data.data.results[0];
+
     } else {
       $log.log("No results for MorningStar BS API");
     }
@@ -44,6 +47,12 @@ self.chartArray = [];
     .then(function successCallback(data) {
       if (data.data.results) {
         self.stockObject["incomeStatement"] = data.data.results[0];
+        self.stockObject.incomeStatement.revenue.splice(5,1);
+        self.stockObject.incomeStatement.netincome.splice(5,1);
+        self.newArray.splice(0,1,self.stockObject.incomeStatement.revenue);
+        self.newArray.splice(1,1,self.stockObject.incomeStatement.netincome);
+
+
     } else {
       $log.log("No results for MorningStar IS API");
     }
@@ -65,12 +74,10 @@ self.chartArray = [];
       [0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0]
     ];
-    object.incomeStatement.revenue.splice(5,1);
-    object.incomeStatement.netincome.splice(5,1);
-    object.cashflow.ocf.splice(5,1);
-    newArray.splice(0,1,object.incomeStatement.revenue);
-    newArray.splice(1,1,object.incomeStatement.netincome);
-   newArray.splice(2,1,object.cashflow.ocf);
+
+
+
+
   //  self.chartArray.splice(1,0,newArray);
   $log.log(newArray);
     return newArray;
